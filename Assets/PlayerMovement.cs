@@ -6,26 +6,60 @@ public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
     private float vertical;
-    private float speed = 5;
+    public float speed = 5;
+    public float jumpSpeed = 20;
+
     private bool isFacingRight = true;
-    private bool isFacingDown = true;
+    private bool isFacingDown = false;
     private Rigidbody2D sb;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        sb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        Flip();
-    }
 
-    private void FixedUpdate()
-    {
-        sb.velocity = new Vector2(horizontal * speed, sb.velocity.y);
+        if (Input.GetKey(KeyCode.W))
+        {
+            sb.velocity = Vector2.up * jumpSpeed/3;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            sb.velocity = Vector2.down * jumpSpeed / 3;
+        }
+
+        if (Input.GetKey(KeyCode.D)){
+            sb.velocity = Vector2.right * speed;
+            if (Input.GetKey(KeyCode.W))
+            {
+                sb.velocity = Vector2.up * jumpSpeed/3;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                sb.velocity = Vector2.down * jumpSpeed / 3;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            sb.velocity = Vector2.left * speed;
+            if (Input.GetKey(KeyCode.W))
+            {
+                sb.velocity = Vector2.up * jumpSpeed;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                sb.velocity = Vector2.down * jumpSpeed / 3;
+            }
+        }
+            Flip();
     }
 
     private void Flip()
