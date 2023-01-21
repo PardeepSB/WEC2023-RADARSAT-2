@@ -21,13 +21,13 @@ public class MainMenuScript : MonoBehaviour
     //code for chosing the next scene i.e. play game
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main Game");
+        SceneManager.LoadScene("Main Game"); //loads scene Main Game
     }
 
     //code for quitting game
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit();// Quits the application.
     }
 
 }
