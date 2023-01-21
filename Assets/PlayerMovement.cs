@@ -8,11 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     public float speed = 5;
     public float jumpSpeed = 20;
-
     private bool isFacingRight = true;
-    private bool isFacingDown = false;
     private Rigidbody2D sb;
-
 
 
     // Start is called before the first frame update
@@ -65,12 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0)
+        if (isFacingRight && horizontal < 0 || !isFacingRight && horizontal > 0)
         {
             isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1;
-            transform.localScale = localScale;
+            Vector3 flipscale = transform.localScale;
+            flipscale.x *= -1;
+            transform.localScale = flipscale;
         }
 
     }
