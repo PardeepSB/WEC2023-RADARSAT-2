@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseMenuScript : MonoBehaviour
 {
 
-    public static bool isPaused=false;
+    public bool isPaused=false;
     public GameObject PauseOverlay;
     // Start is called before the first frame update
     void Start()
