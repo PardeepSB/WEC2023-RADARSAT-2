@@ -28,18 +28,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            sb.velocity = Vector2.up * jumpSpeed/3;
+            sb.velocity = Vector2.up * jumpSpeed / 3;
         }
         if (Input.GetKey(KeyCode.S))
         {
             sb.velocity = Vector2.down * jumpSpeed / 3;
         }
 
-        if (Input.GetKey(KeyCode.D)){
+        if (Input.GetKey(KeyCode.D))
+        {
             sb.velocity = Vector2.right * speed;
             if (Input.GetKey(KeyCode.W))
             {
-                sb.velocity = Vector2.up * jumpSpeed/3;
+                sb.velocity = Vector2.up * jumpSpeed / 3;
             }
             if (Input.GetKey(KeyCode.S))
             {
@@ -59,12 +60,12 @@ public class PlayerMovement : MonoBehaviour
                 sb.velocity = Vector2.down * jumpSpeed / 3;
             }
         }
-            Flip();
+        Flip();
     }
 
     private void Flip()
     {
-        if(isFacingRight && horizontal < 0f|| !isFacingRight && horizontal > 0)
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -74,4 +75,3 @@ public class PlayerMovement : MonoBehaviour
 
     }
 }
-   
